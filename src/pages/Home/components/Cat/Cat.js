@@ -14,6 +14,7 @@ const Cat = () => {
     return (
         <div className="cat-container">
             <Lottie options={defaultOptions}/>
+            <label>Hola humano!</label>
         </div>
     );
 }
