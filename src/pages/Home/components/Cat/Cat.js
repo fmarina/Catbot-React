@@ -18,7 +18,6 @@ const Cat = () => {
     return (
         <div className="cat-container" onClick={handleClick}>
             <Lottie options={defaultOptions}/>
-            <label>Hola humano!</label>
         </div>
     );
 }
