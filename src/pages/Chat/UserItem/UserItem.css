@@ -1,0 +1,23 @@
+.user-item-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.user-item-messages label {
+    width: fit-content;
+    box-sizing: border-box;
+    margin: 0 10px 5px 0;
+    padding: 10px;
+    background-color: #e08b97;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    border-radius: 5px;
+
+}
+
+.user-item-container img {
+    width: 40px;
+}
