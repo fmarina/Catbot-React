@@ -1,0 +1,25 @@
+.chat-container {
+    width: 100%;
+    height: 100vh;
+}
+
+.chat-content {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.chatbox-chat {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.16);
+}
+
+/* .chatbox-container-body {} */
