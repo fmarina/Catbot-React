@@ -1,0 +1,38 @@
+.chatbox-inputchat-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbox-inputchat-container input {
+    width: 80%;
+    height: 35px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    border: 1px solid #b7c4e9;
+    border-radius: 25px;
+    outline: none;
+    background-color: #d4dcf2;
+    color: #432b51;
+    font-size: 14px;
+    font-family: 'Quicksand';
+}
+
+.chatbox-inputchat-container input::placeholder {
+    color: #a1b2e4;
+    font-size: 14px;
+}
+
+.chatbox-inputchat-container button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #432b51;    
+    background-color:#432b51;
+    background-image: url('../../../assets/images/icon-send.png');
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.16);
+}
