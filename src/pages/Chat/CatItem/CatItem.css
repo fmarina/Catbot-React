@@ -1,0 +1,23 @@
+.cat-item-container {
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.cat-item-container img {
+    width: 40px;
+}
+
+.cat-item-messages label {
+    width: fit-content;
+    max-width: 7%;
+    box-sizing: border-box;
+    margin: 0 0 5px 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #432b51d7;
+    color: #fff;
+    font-weight: normal;
+    font-size: 14px;
+}
