@@ -7,12 +7,10 @@ const CatItem = ({text}) => {
     
     return (
         <div className="cat-item-container">
-        <Fade cascade>
             <img src={catAvatar} alt="cat avatar" />
             <div className="cat-item-messages">
-                { text.map((txt, i) => <label key={i}>{txt}</label> ) } 
+                { text.map((txt, i) => <label key={i}>{txt}</label> ) }
             </div>
-        </Fade>        
         </div>
     );
 }
