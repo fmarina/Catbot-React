@@ -16,10 +16,22 @@
     width: 100%;
     height: 500px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
     background-color: #fff;
+    box-sizing: border-box;
+    padding: 20px 10px 10px 10px;
     border-radius: 15px;
     box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.16);
 }
 
-/* .chatbox-container-body {} */
+.chatbox-container-body {
+    width: 100%;
+    height: 90%;
+}
+
+.chatbox-container-input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
