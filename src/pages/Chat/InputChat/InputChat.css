@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 5px;
 }
 
 .chatbox-inputchat-container input {
