@@ -6,12 +6,12 @@ import Fade from 'react-reveal/Fade';
 const UserItem = ({text}) => {
     return (
         <div className="user-item-container">
-        <Fade cascade>
             <div className="user-item-messages">
-                <label>{text}</label>
+                <Fade right>
+                    <label>{text}</label>
+                </Fade>
             </div>
             <img src={userAvatar} alt="user avatar" />
-        </Fade>
         </div>
     );
 }
