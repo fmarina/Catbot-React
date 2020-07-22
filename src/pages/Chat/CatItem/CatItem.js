@@ -1,7 +1,6 @@
 import React from 'react';
 import './CatItem.css';
 import catAvatar from '../../../assets/images/cat-avatar.png';
-import Fade from 'react-reveal/Fade';
 
 const CatItem = ({text}) => {
     
