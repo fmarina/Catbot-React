@@ -6,7 +6,8 @@
 .selector-content {
     width: 80%;
     height: fit-content;
-    display: flex;
+    display: flex;    
+    flex-direction: column;
     box-sizing: border-box;
     margin: 10px 0 10px auto;
     padding: 15px 0 10px 15px;
@@ -17,7 +18,6 @@
 .selector-options label {    
     width: 90%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
     margin-bottom: 5px;
