@@ -3,6 +3,9 @@ import './Chat.css';
 import CatItem from './CatItem/CatItem';
 import UserItem from './UserItem/UserItem';
 import InputChat from './InputChat/InputChat';
+import Select from './Select/Select';
+import {doing, aboutMe} from '../../data/Actions';
+import Fade from 'react-reveal/Fade';
 
 const Chat = () => {
     
@@ -16,6 +19,26 @@ const Chat = () => {
             msg : ["Hola!", "Cómo te llamas?"]
         }
     ]);
+    const [interactions, setInteractions] = useState([]);
+    const [openSelect, setOpenSelect] = useState(false);
+
+    let options = [
+        {
+            id: "What are you doing?",
+            text: "¿Que estas haciendo?"
+        },
+        // {
+        //     id: "Send me a meme!",
+        //     text: "Me compartis un meme?"
+        // },
+        {
+            id: "Tell me about you!",
+            text: "Cuentame sobre ti!"
+        }
+    ];
+
+    console.log(interactions);
+
 
     function firstResponse(name) {
         let newChat = {
@@ -50,9 +73,23 @@ const Chat = () => {
         if (chat.length === 2) {
             setTimeout(() => firstResponse(msg.msg), 500);
             setMsg({ ...msg, msg : "" });
-            // setTimeout(() => setOpenSelect(true), 600);
+            setTimeout(() => setOpenSelect(true), 600);
         }
     }, [chat]);
+
+    function handleSelectedOptions(value) {
+        let result;
+        switch(value) {
+            case "What are you doing?":
+                result = doing[Math.floor(Math.random() * doing.length)];
+                if(result) setInteractions([...interactions, result.msg]);
+                break;
+            case "Tell me about you!":
+                result = aboutMe[Math.floor(Math.random() * aboutMe.length)];
+                if(result) setInteractions([...interactions, result.msg]);
+            break;
+        }
+    }
 
     return (
         <div className="chat-container">
@@ -65,6 +102,15 @@ const Chat = () => {
                                 ? <CatItem key={i} text={message.msg} />
                                 : <UserItem key={i} text={message.msg} />
                             )
+                        }
+
+                        {   (openSelect) && 
+                                <Fade right>
+                                    <Select 
+                                        options={options} 
+                                        handleSelect={handleSelectedOptions}
+                                    />
+                                </Fade>
                         }
                     </div>
                     <div className="chatbox-container-input">
