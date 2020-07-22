@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Chat.css';
 import CatItem from './CatItem/CatItem';
 import UserItem from './UserItem/UserItem';
@@ -12,7 +12,7 @@ const Chat = () => {
     const [chat, setChat] = useState([
         {
             id : 0,
-            emmiter : "Cat",
+            emitter : "Cat",
             msg : ["Hola!", "Cómo te llamas?"]
         }
     ]);
@@ -22,16 +22,14 @@ const Chat = () => {
             id : idCounter + 2,
             emitter : "Cat",
             msg : [
-                `Encantado, ${name}!`, 
+                "Encantado, " + name + "!", 
                 "Mi nombre es Miyi, soy un catbot aún en desarrollo",
                 "Eso quiere decir que aún no estoy preparado para tus preguntas específicas 😞",
                 "Pero aún así podemos interactuar! 😉",
                 "Hazme una pregunta de la lista, y con gusto la responderé!"
             ]
         }
-        if(newChat) {
-            setChat([...chat, newChat]);
-        }
+        if(newChat) setChat([...chat, newChat]);
     }
 
     function getMeMessage(value) {
@@ -48,8 +46,13 @@ const Chat = () => {
         setChat([...chat, msg]);
     }
 
-    console.log("chat", chat);
-    console.log("msg", msg);
+    useEffect(() => {
+        if (chat.length === 2) {
+            setTimeout(() => firstResponse(msg.msg), 500);
+            setMsg({ ...msg, msg : "" });
+            // setTimeout(() => setOpenSelect(true), 600);
+        }
+    }, [chat]);
 
     return (
         <div className="chat-container">
@@ -58,14 +61,15 @@ const Chat = () => {
                     <div className="chatbox-container-body">
                         {   
                             chat.map((message, i) => 
-                                message.emmiter === "Cat"
+                                message.emitter === "Cat"
                                 ? <CatItem key={i} text={message.msg} />
                                 : <UserItem key={i} text={message.msg} />
-                            )       
-                        }                        
+                            )
+                        }
                     </div>
                     <div className="chatbox-container-input">
                         <InputChat 
+                            msg={msg}
                             getMeMessage={getMeMessage}
                             sendMessage={sendMessage}
                         />
