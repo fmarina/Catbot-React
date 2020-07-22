@@ -11,7 +11,7 @@ const Chat = () => {
         {
             id : 0,
             emmiter : "Cat",
-            msg : ["Hola!", "Cómo es tu nombre?"]
+            msg : ["Hola!", "Cómo es tu nombre?", "Yo estoy muy bien"]
         }
     ]);
 

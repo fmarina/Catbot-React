@@ -1,17 +1,21 @@
 .cat-item-container {
-    width: auto;
     display: flex;
-    align-items: center;
-    margin-top: 5px;
+    max-width: 90%;
 }
 
 .cat-item-container img {
-    width: 40px;
+    height: 40px;
+}
+
+.cat-item-messages {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .cat-item-messages label {
     width: fit-content;
-    max-width: 7%;
     box-sizing: border-box;
     margin: 0 0 5px 10px;
     padding: 10px;
