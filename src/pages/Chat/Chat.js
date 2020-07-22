@@ -37,9 +37,6 @@ const Chat = () => {
         }
     ];
 
-    console.log(interactions);
-
-
     function firstResponse(name) {
         let newChat = {
             id : idCounter + 2,
@@ -112,9 +109,27 @@ const Chat = () => {
                                     />
                                 </Fade>
                         }
+                        {
+                            (interactions.length > 0) && 
+                                interactions.map((interaction, i) => 
+                                    <>
+                                        <Fade left>
+                                            <CatItem key={i} text={interaction} />
+                                        </Fade>
+                                        <Fade right>
+                                            <Select
+                                                key={i}
+                                                options={options} 
+                                                handleSelect={handleSelectedOptions}
+                                            />
+                                        </Fade>
+                                    </>
+                                )
+                        }
                     </div>
                     <div className="chatbox-container-input">
                         <InputChat 
+                            chat={chat}
                             msg={msg}
                             getMeMessage={getMeMessage}
                             sendMessage={sendMessage}
