@@ -10,8 +10,8 @@ const Chat = () => {
             <div className="chat-content">
                 <div className="chatbox-chat">
                     <div className="chatbox-container-body">
-                        <CatItem />
-                        <UserItem />                        
+                        <CatItem text="Hola, bienvenido. Miau." />
+                        <UserItem text="Gracias por querer ayudarme"/>                        
                     </div>
                     <div className="chatbox-container-input">
                             <InputChat />
