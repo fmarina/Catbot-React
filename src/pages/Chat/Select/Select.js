@@ -9,7 +9,7 @@ const Select = ({options, handleSelect}) => {
                 options.map((option) =>
                     <div 
                         key={option.id} 
-                        onClick={() => handleSelect(op.id)} 
+                        onClick={() => handleSelect(option.id)} 
                         className="selector-options"
                     >
                         <label>{option.text}</label>
