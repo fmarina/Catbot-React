@@ -35,6 +35,19 @@ label {
     margin-bottom: 5px;
 }
 
+/* MEDIA QUERIES */
 
+@media screen and (min-width: 768px) {
+    .home-catbot-content {
+        width: 75%;
+        max-width: 700px;
+        justify-content: flex-start;
+    }    
+    .home-catbot-greeting { justify-content: flex-start;}
+}
 
-
+@media screen and (max-width: 318px) {  
+    .home-catbot-content { justify-content: center; }
+    .home-catbot-greeting h1 { font-size: 2em; }
+    .home-catbot-greeting label { font-size: 0.8em;}
+}

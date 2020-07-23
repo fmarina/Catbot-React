@@ -30,9 +30,23 @@
     overflow: auto;
 }
 
+.chatbox-container-body::-webkit-scrollbar {
+    width: 0px;
+    display: none
+}
+
 .chatbox-container-input {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 1024px) {
+    .chat-content {
+        width: 85%;
+        max-width: 600px;
+    }
 }
