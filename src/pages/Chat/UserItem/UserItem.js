@@ -4,11 +4,13 @@ import userAvatar from '../../../assets/images/user-avatar.png';
 import Fade from 'react-reveal/Fade';
 
 const UserItem = ({text}) => {
-    return (
+    return (        
         <div className="user-item-container">
             <div className="user-item-messages">
                 <Fade right>
-                    <label>{text}</label>
+                    <label>
+                        { (text !== undefined) ? text : "Anonimo"}
+                    </label>
                 </Fade>
             </div>
             <img src={userAvatar} alt="user avatar" />
