@@ -6,8 +6,10 @@ import InputChat from './InputChat/InputChat';
 import Select from './Select/Select';
 import {doing, aboutMe, meme} from '../../data/Actions';
 import Fade from 'react-reveal/Fade';
+import { useHistory } from 'react-router-dom';
 
 const Chat = () => {
+    const history = useHistory();
     
     let idCounter = 0;
 
@@ -35,6 +37,10 @@ const Chat = () => {
         {
             id: "Tell me about you!",
             text: "Cuentame sobre ti!"
+        },
+        {
+            id: "See you later!",
+            text: "Nos vemos pronto Miyi bot!"
         }
     ];
 
@@ -43,7 +49,7 @@ const Chat = () => {
             id : idCounter + 2,
             emitter : "Cat",
             msg : [
-                "Encantado, " + name + "!", 
+                "Encantado, " + name + "! 🤗", 
                 "Mi nombre es Miyi, soy un catbot aún en desarrollo",
                 "Eso quiere decir que aún no estoy preparado para tus preguntas específicas 😞",
                 "Pero aún así podemos interactuar! 😉",
@@ -81,7 +87,7 @@ const Chat = () => {
                 : firstResponse(msg.msg)
             }, 500);
             setMsg({ ...msg, msg : "" });
-            setTimeout(() => setOpenSelect(true), 600);            
+            setTimeout(() => setOpenSelect(true), 600);
         }
     }, [chat]);
 
@@ -99,6 +105,14 @@ const Chat = () => {
             case "Send me a meme!":
                 result = meme[Math.floor(Math.random() * meme.length)];
                 if(result) setInteractions([...interactions, result.img]);
+                break;
+            case "See you later!":
+                result= ["Nos vemos pronto 👋. Háblame cuando quieras!"];
+                if(result) {
+                    setOpenSelect(false);
+                    setInteractions([...interactions, result]);
+                    setTimeout(() => history.goBack(), 5000);
+                }
                 break;
         }
         scrollToBottom();
