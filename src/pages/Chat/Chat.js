@@ -6,7 +6,7 @@ import InputChat from './InputChat/InputChat';
 import Select from './Select/Select';
 import {doing, aboutMe, meme} from '../../data/Actions';
 import Fade from 'react-reveal/Fade';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 
 const Chat = () => {
     const history = useHistory();
@@ -111,7 +111,7 @@ const Chat = () => {
                 if(result) {
                     setOpenSelect(false);
                     setInteractions([...interactions, result]);
-                    setTimeout(() => history.goBack(), 5000);
+                    setTimeout(() => history.goBack(), 6000);
                 }
                 break;
         }
@@ -146,6 +146,8 @@ const Chat = () => {
                                         <Fade left>
                                             <CatItem key={i} text={interaction} />
                                         </Fade>
+                                    {
+                                        (openSelect) &&
                                         <Fade right>
                                             <Select
                                                 key={i}
@@ -153,6 +155,8 @@ const Chat = () => {
                                                 handleSelect={handleSelectedOptions}
                                             />
                                         </Fade>
+                                    }
+                                        
                                     </>
                                 )
                         }
