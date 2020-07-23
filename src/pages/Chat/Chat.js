@@ -4,7 +4,7 @@ import CatItem from './CatItem/CatItem';
 import UserItem from './UserItem/UserItem';
 import InputChat from './InputChat/InputChat';
 import Select from './Select/Select';
-import {doing, aboutMe} from '../../data/Actions';
+import {doing, aboutMe, meme} from '../../data/Actions';
 import Fade from 'react-reveal/Fade';
 
 const Chat = () => {
@@ -27,10 +27,10 @@ const Chat = () => {
             id: "What are you doing?",
             text: "¿Que estas haciendo?"
         },
-        // {
-        //     id: "Send me a meme!",
-        //     text: "Me compartis un meme?"
-        // },
+        {
+            id: "Send me a meme!",
+            text: "Me compartis un meme?"
+        },
         {
             id: "Tell me about you!",
             text: "Cuentame sobre ti!"
@@ -68,10 +68,14 @@ const Chat = () => {
 
     useEffect(() => {
         if (chat.length === 2) {
-            setTimeout(() => firstResponse(msg.msg), 500);
+            setTimeout(() => {
+                (msg.msg === undefined)
+                ? firstResponse("Anonimo 🙄")
+                : firstResponse(msg.msg)
+            }, 500);
             setMsg({ ...msg, msg : "" });
             setTimeout(() => setOpenSelect(true), 600);
-        }
+        }        
     }, [chat]);
 
     function handleSelectedOptions(value) {
@@ -85,6 +89,9 @@ const Chat = () => {
                 result = aboutMe[Math.floor(Math.random() * aboutMe.length)];
                 if(result) setInteractions([...interactions, result.msg]);
             break;
+            case "Send me a meme!":
+                result = meme[Math.floor(Math.random() * meme.length)];
+                if(result) setInteractions([...interactions, result.img]);
         }
     }
 
@@ -95,7 +102,7 @@ const Chat = () => {
                     <div className="chatbox-container-body">
                         {   
                             chat.map((message, i) => 
-                                message.emitter === "Cat"
+                                message.emitter === "Cat" 
                                 ? <CatItem key={i} text={message.msg} />
                                 : <UserItem key={i} text={message.msg} />
                             )
