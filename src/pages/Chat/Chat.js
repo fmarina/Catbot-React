@@ -111,7 +111,7 @@ const Chat = () => {
                 if(result) {
                     setOpenSelect(false);
                     setInteractions([...interactions, result]);
-                    setTimeout(() => history.goBack(), 6000);
+                    setTimeout(() => history.goBack(), 4000);
                 }
                 break;
         }
