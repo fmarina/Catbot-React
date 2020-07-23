@@ -26,3 +26,26 @@
     font-weight: normal;
     font-size: 14px;
 }
+
+.cat-item-meme-container {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 10px;   
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 1.2px solid #432b51;
+    border-radius: 5px;    
+    box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.16);
+}
+
+.cat-item-meme-container img {
+    height: 180px;
+    width: 180px;
+    object-fit: contain;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
