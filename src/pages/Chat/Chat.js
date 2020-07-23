@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import './Chat.css';
 import CatItem from './CatItem/CatItem';
 import UserItem from './UserItem/UserItem';
@@ -10,7 +10,7 @@ import Fade from 'react-reveal/Fade';
 const Chat = () => {
     
     let idCounter = 0;
-    
+
     const [msg, setMsg] = useState({});
     const [chat, setChat] = useState([
         {
@@ -21,6 +21,7 @@ const Chat = () => {
     ]);
     const [interactions, setInteractions] = useState([]);
     const [openSelect, setOpenSelect] = useState(false);
+    const scrollRef = useRef(null);
 
     let options = [
         {
@@ -65,6 +66,12 @@ const Chat = () => {
         e.preventDefault();
         setChat([...chat, msg]);
     }
+    
+    function scrollToBottom() {
+        setTimeout(() => {
+            scrollRef.current.scrollIntoView({behavior: "smooth"});            
+        }, 600);        
+    }
 
     useEffect(() => {
         if (chat.length === 2) {
@@ -74,8 +81,8 @@ const Chat = () => {
                 : firstResponse(msg.msg)
             }, 500);
             setMsg({ ...msg, msg : "" });
-            setTimeout(() => setOpenSelect(true), 600);
-        }        
+            setTimeout(() => setOpenSelect(true), 600);            
+        }
     }, [chat]);
 
     function handleSelectedOptions(value) {
@@ -92,7 +99,9 @@ const Chat = () => {
             case "Send me a meme!":
                 result = meme[Math.floor(Math.random() * meme.length)];
                 if(result) setInteractions([...interactions, result.img]);
+                break;
         }
+        scrollToBottom();
     }
 
     return (
@@ -133,6 +142,7 @@ const Chat = () => {
                                     </>
                                 )
                         }
+                        <div ref={scrollRef}></div>
                     </div>
                     <div className="chatbox-container-input">
                         <InputChat 

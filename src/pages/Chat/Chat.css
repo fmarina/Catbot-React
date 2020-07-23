@@ -27,7 +27,6 @@
 .chatbox-container-body {
     width: 100%;
     height: 90%;
-    max-height: 90%;
     overflow: auto;
 }
 
