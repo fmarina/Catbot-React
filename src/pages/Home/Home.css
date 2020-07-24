@@ -37,11 +37,15 @@ label {
 
 /* MEDIA QUERIES */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
+    .cat-container {
+        max-width: 435px;
+    }
     .home-catbot-content {
         width: 75%;
         max-width: 700px;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
     }    
     .home-catbot-greeting { justify-content: flex-start;}
 }
